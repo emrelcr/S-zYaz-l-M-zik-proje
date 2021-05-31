@@ -1,0 +1,374 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>EmreCanliTv</title>
+
+  <link rel="stylesheet" media="screen" href="https://cpwebassets.codepen.io/assets/fullpage/fullpage-4de243a40619a967c0bf13b95e1ac6f8de89d943b7fc8710de33f681fe287604.css">
+  
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+
+
+  <title>CodePen - Lyrics Player</title>
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+  <style>
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body { height:100%; display: flex; flex-direction: column; }
+    .referer-warning {
+      background: black;
+      box-shadow: 0 2px 5px rgba(0,0,0, 0.5);
+      padding: 0.75em;
+      color: white;
+      text-align: center;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+      line-height: 1.2;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .referer-warning h1 { font-size: 1.2rem; margin: 0; }
+    .referer-warning a { color: #56bcf9; } /* $linkColorOnBlack */
+  </style>
+</head>
+
+<body class="">
+  
+
+  <div id="result-iframe-wrap" role="main">
+
+    <iframe id="result" srcdoc="
+<!DOCTYPE html>
+<html lang=&quot;en&quot; >
+
+<head>
+
+  <meta charset=&quot;UTF-8&quot;>
+  
+<link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+<meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+<link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+<link rel=&quot;mask-icon&quot; type=&quot;&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+
+
+  <title>CodePen - Lyrics Player</title>
+  
+  
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600'>
+  
+<style>
+body {
+  font-family: &quot;Montserrat&quot;, sans-serif;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background: #222222;
+  background: -webkit-linear-gradient(to top, #232526, #414345);
+  background-image: url('https://cdn.pixabay.com/photo/2019/06/11/12/14/love-4266855_1280.jpg');
+}
+body a {
+  color: inherit;
+}
+body a:not(:hover) {
+  text-decoration: none;
+}
+body #link-a-me {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  height: 60px;
+  width: 60px;
+  background: url(https://i.imgur.com/xoxkq1r.png);
+  background-size: cover;
+  z-index: 1;
+  -webkit-animation: pop-in 120s ease-out;
+          animation: pop-in 120s ease-out;
+}
+body .content {
+  overflow: hidden;
+  flex-grow: 1;
+  height: calc(100% - 80px);
+}
+body .content .lyrics {
+  padding: 50vh 0;
+  min-height: calc(100vh - 80px);
+  width: calc(100% - 40px);
+  margin: 0 20px;
+  text-align: center;
+  transition: all 0.25s;
+  position: relative;
+}
+body .content .lyrics > div {
+  position: relative;
+  font-size: 40px;
+  line-height: 80px;
+  color: #666;
+  transition: all 0.25s;
+}
+body .content .lyrics > div:before {
+  content: attr(note);
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+body .content .lyrics > div.highlighted {
+  color: #fff;
+  font-size: 48px;
+}
+body .player {
+  z-index: 10;
+  background: #ffe696;
+  color: #000;
+  min-height: 80px;
+  max-height: 80px;
+  display: flex;
+  flex-direction: row;
+}
+body .player .left {
+  width: 80px;
+  background-color: #222222;
+  background-image: url(https://static.wixstatic.com/media/778684_b0b73b227b68422cb17a8f9eb2ec2a4c~mv2.png);
+  background-size: cover;
+}
+body .player .right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+body .player .right .top {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+body .player .right .top .song {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+body .player .right .bottom {
+  display: flex;
+}
+body .player .right .bottom video {
+  flex-grow: 1;
+  height: 32px;
+}
+
+@-webkit-keyframes pop-in {
+  0%, 95% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes pop-in {
+  0%, 95% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
+  }
+</script>
+
+
+</head>
+
+<body translate=&quot;no&quot; >
+  <div class=&quot;content&quot;>
+   <div class=&quot;lyrics&quot;></div>
+</div>
+
+<div class=&quot;player&quot;>
+   <div class=&quot;left&quot;></div>
+   <div class=&quot;right&quot;>
+      <div class=&quot;top&quot;>
+         <a class=&quot;song&quot; href=&quot;&quot;>Deeperise</a>
+         <a class=&quot;artist&quot; href=&quot;&quot;>Kara Toprak ft Cem Adrian / Þanýþer</a>
+      </div>
+      <div class=&quot;bottom&quot;>
+         <video controls=&quot;&quot; _autoplay=&quot;&quot; name=&quot;media&quot;><source src=&quot;https://dinle.mp3indirdur.info/mp3/indirdurArsiv333/Deeperise/Kara-Toprak/Deeperise-Seni-Dert-Etmeler-ft-Madrigal.mp3&quot; type=&quot;audio/mpeg&quot;></video>
+      </div>
+   </div>
+</div>
+    <script src=&quot;https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js&quot;></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://codepen.io/z-/pen/b80a82399ce296a5ae898314d25aab44'></script>
+<script src='https://codepen.io/z-/pen/2c7364f84f43c21e994e4fb7b08d6ec8'></script>
+<script src='https://codepen.io/z-/pen/3f1e5b5c78c8e29dac7cd9b368c9588b'></script>
+<script src='https://codepen.io/z-/pen/7ea46ddd3f67af5c54c6a85b62e3bf6f'></script>
+<script src='https://codepen.io/z-/pen/f04c48e49111ecc45c269f7982f4d316'></script>
+<script src='https://codepen.io/z-/pen/3fd7d80820b071e01bf9eb0c0c6e1fe3'></script>
+<script src='https://codepen.io/z-/pen/603dce1db8e57ac8da6c8b1cc8c12b98'></script>
+<script src='https://codepen.io/z-/pen/a0fabb58a6dc479728ccc8e33352c007'></script>
+<script src='https://codepen.io/z-/pen/3957cdad8abc3da137905da0c1b89ee7'></script>
+<script src='https://codepen.io/z-/pen/63c6bbb02bfa1dfbeba4d30737a492c6'></script>
+<script src='https://codepen.io/z-/pen/74bbe3852bf75d66a7a0c9534e0b6618'></script>
+<script src='https://codepen.io/z-/pen/4faa8297d50d678f6292098e96079f6e'></script>
+<script src='https://codepen.io/z-/pen/0a1bedbb8ca05b9afd329264fca7b921'></script>
+<script src='https://codepen.io/z-/pen/f883f8c6d04e206547ab007f5b93bc9c'></script>
+<script src='https://codepen.io/z-/pen/981373951584da45d4d6366094974b6d'></script>
+<script src='https://codepen.io/z-/pen/a3625ac432ead8e20af8f059881dca35'></script>
+<script src='https://codepen.io/z-/pen/a3e71dad89f8e720aa76a4cea7d88800'></script>
+<script src='https://codepen.io/z-/pen/9e994e381e79fecd11ec069592abc381'></script>
+      <script id=&quot;rendered-js&quot; >
+console.clear();
+var _data = JSON.parse(`
+{&quot;lyrics&quot;:[{&quot;line&quot;:&quot;&quot;,&quot;time&quot;:-1},
+{&quot;line&quot;:&quot;Bazen bana gelir gider&quot;,&quot;time&quot;:19000},
+{&quot;line&quot;:&quot;Seni dert etmeler&quot;,&quot;time&quot;:23000},
+{&quot;line&quot;:&quot;Seni rüyalarimda hapsetmeler&quot;,&quot;time&quot;:26000},
+{&quot;line&quot;:&quot;Yýldýzlarýn hýrsýzlarý mý var&quot;,&quot;time&quot;:30000},
+{&quot;line&quot;:&quot;Tutamam, tutamam&quot;,&quot;time&quot;:34500},
+{&quot;line&quot;:&quot;Hep yeni bir gün doðar&quot;,&quot;time&quot;:36000},
+{&quot;line&quot;:&quot;Baþka bir evrende&quot;,&quot;time&quot;:39000},
+{&quot;line&quot;:&quot;En güzel halinle&quot;,&quot;time&quot;:41000},
+{&quot;line&quot;:&quot;Sen hayata karýþ&quot;,&quot;time&quot;:43000},
+{&quot;line&quot;:&quot;Ben daha da biteceðim&quot;,&quot;time&quot;:45000},
+{&quot;line&quot;:&quot;Kýrgýným kendime&quot;,&quot;time&quot;:48000},
+{&quot;line&quot;:&quot;Üþüyorum gölgende&quot;,&quot;time&quot;:51000},
+{&quot;line&quot;:&quot;Henüz bilmesen de&quot;,&quot;time&quot;:53500},
+{&quot;line&quot;:&quot;Belki bir gün gideceðim&quot;,&quot;time&quot;:55000},
+
+{&quot;line&quot;:&quot;?*???•d•?•?°•°.:??‹«.•d•?•?&quot;,&quot;time&quot;:58000},
+
+{&quot;line&quot;:&quot;Hiç gerek yok daha fazlasýna&quot;,&quot;time&quot;:97000},
+{&quot;line&quot;:&quot;Zamaný tutmaya&quot;,&quot;time&quot;:102000},
+{&quot;line&quot;:&quot;Fezaya uçmaya&quot;,&quot;time&quot;:104000},
+{&quot;line&quot;:&quot;Geride kaldýlar&quot;,&quot;time&quot;:107000},
+{&quot;line&quot;:&quot;Geride kaldý o günler&quot;,&quot;time&quot;:109000},
+{&quot;line&quot;:&quot;Sen varken taptýðým kasvetli þehirler&quot;,&quot;time&quot;:112000},
+{&quot;line&quot;:&quot;Baþka bir evrende&quot;,&quot;time&quot;:117000},
+{&quot;line&quot;:&quot;En güzel halinle&quot;,&quot;time&quot;:120000},
+{&quot;line&quot;:&quot;Sen hayata karýþ&quot;,&quot;time&quot;:122000},
+{&quot;line&quot;:&quot;Ben daha da biteceðim&quot;,&quot;time&quot;:124000},
+{&quot;line&quot;:&quot;Kýrgýným kendime&quot;,&quot;time&quot;:127000},
+{&quot;line&quot;:&quot;Üþüyorum gölgende&quot;,&quot;time&quot;:129500},
+{&quot;line&quot;:&quot;Henüz bilmesen de&quot;,&quot;time&quot;:132000},
+{&quot;line&quot;:&quot;Belki bir gün gideceðim&quot;,&quot;time&quot;:134000},
+{&quot;line&quot;:&quot;Kýrgýným kendime&quot;,&quot;time&quot;:137000},
+{&quot;line&quot;:&quot;Üþüyorum gölgende&quot;,&quot;time&quot;:139000},
+{&quot;line&quot;:&quot;Henüz bilmesen de&quot;,&quot;time&quot;:141500},
+{&quot;line&quot;:&quot;Belki bir gün gideceðim&quot;,&quot;time&quot;:143000},
+
+{&quot;line&quot;:&quot;?*???•d•?•?°•°.:??‹«.•d•?•?&quot;,&quot;time&quot;:146000},
+
+{&quot;line&quot;:&quot;&quot;,&quot;time&quot;:198000}]}`);
+
+var currentLine = &quot;&quot;;
+
+function align() {
+  var a = $(&quot;.highlighted&quot;).height();
+  var c = $(&quot;.content&quot;).height();
+  var d = $(&quot;.highlighted&quot;).offset().top - $(&quot;.highlighted&quot;).parent().offset().top;
+  var e = d + a / 2 - c / 2;
+  $(&quot;.content&quot;).animate(
+  { scrollTop: e + &quot;px&quot; }, { easing: &quot;swing&quot;, duration: 250 });
+
+}
+
+var lyricHeight = $(&quot;.lyrics&quot;).height();
+$(window).on(&quot;resize&quot;, function () {
+  if ($(&quot;.lyrics&quot;).height() != lyricHeight) {//Either width changes so that a line may take up or use less vertical space or the window height changes, 2 in 1
+    lyricHeight = $(&quot;.lyrics&quot;).height();
+    align();
+  }
+});
+
+$(document).ready(function () {
+  $(&quot;video&quot;).on('timeupdate', function (e) {
+    var time = this.currentTime * 1000;
+    var past = _data[&quot;lyrics&quot;].filter(function (item) {
+      return item.time < time;
+    });
+    if (_data[&quot;lyrics&quot;][past.length] != currentLine) {
+      currentLine = _data[&quot;lyrics&quot;][past.length];
+      $(&quot;.lyrics div&quot;).removeClass(&quot;highlighted&quot;);
+      $(`.lyrics div:nth-child(${past.length})`).addClass(&quot;highlighted&quot;); //Text might take up more lines, do before realigning
+      align();
+    }
+  });
+});
+
+generate();
+
+function generate() {
+  var html = &quot;&quot;;
+  for (var i = 0; i < _data[&quot;lyrics&quot;].length; i++) {if (window.CP.shouldStopExecution(0)) break;
+    html += &quot;<div&quot;;
+    if (i == 0) {
+      html += ` class=&quot;highlighted&quot;`;
+      currentLine = 0;
+    }
+    if (_data[&quot;lyrics&quot;][i][&quot;note&quot;]) {
+      html += ` note=&quot;${_data[&quot;lyrics&quot;][i][&quot;note&quot;]}&quot;`;
+    }
+    html += &quot;>&quot;;
+    html += _data[&quot;lyrics&quot;][i][&quot;line&quot;] == &quot;&quot; ? &quot;•&quot; : _data[&quot;lyrics&quot;][i][&quot;line&quot;];
+    html += &quot;</div>&quot;;
+  }window.CP.exitedLoop(0);
+  $(&quot;.lyrics&quot;).html(html);
+  align();
+}
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
+" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation  allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+      </iframe>
+
+  </div>
+
+
+</body></html>
